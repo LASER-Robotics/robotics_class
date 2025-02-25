@@ -3,7 +3,7 @@
 <package format="3">
   <name>robotics_class</name>
   <version>0.0.0</version>
-  <description>Pacote destinado a fornecer uma simulacao para as aulas da turma de robotica</description>
+  <description>robotics_class</description>
   <maintainer email="augustoviniciud@gmail.com">augusto</maintainer>
   <license>BSD</license>
 
@@ -12,6 +12,7 @@
   <depend>gazebo_ros</depend>
   <depend>robot_state_publisher</depend>
   <depend>joint_state_publisher</depend>
+  <depend>robot_localization</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
