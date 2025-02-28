@@ -335,7 +335,7 @@
       <publish_wheel_tF>false</publish_wheel_tF>
 
         <!-- Set to true to publish transforms for the odometry, defaults to true -->
-      <publish_odom>true</publish_odom>
+      <publish_odom>false</publish_odom>
 
         <!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
       <publish_wheel_joint_state>false</publish_wheel_joint_state>
