@@ -46,17 +46,17 @@ This package contains the simulation and low-level core of the jetauto robot tha
   ros2 launch robotics_class rviz.launch.py
 ```
 
-5 - Launch the goto (in case of passing coordinates).
+5 - Launch the teleop.
+
+``` sh
+  ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --remap cmd_vel:=jetauto/cmd_vel'
+```
+
+6 - Launch the goto (in case of passing coordinates).
 
 ``` sh
   ros2 topic pub -1 /jetauto/cmd_vel geometry_msgs/msg/Twist \"{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}\"'
 
-```
-
-6 - Launch the teleop.
-
-``` sh
-  ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --remap cmd_vel:=jetauto/cmd_vel'
 ```
 
 ## Communication interfaces
