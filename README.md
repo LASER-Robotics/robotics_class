@@ -13,8 +13,12 @@ This package contains the simulation and low-level core of the jetauto robot tha
 ``` sh
   rosdep install --from-paths src
 ```
+4 - Make sure to also install the gazebo packages.
 
-4 - Build your workspace.
+``` sh
+  sudo apt install ros-humble-gazebo-ros-pkgs
+```
+5 - Build your workspace.
 
 ``` sh
   colcon build
