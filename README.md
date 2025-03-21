@@ -53,7 +53,7 @@ This package contains the simulation and low-level core of the jetauto robot tha
 5 - Launch the teleop.
 
 ``` sh
-  ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --remap cmd_vel:=jetauto/cmd_vel'
+  ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --remap cmd_vel:=jetauto/cmd_vel
 ```
 
 6 - Launch the goto (in case of passing coordinates).
