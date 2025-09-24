@@ -289,114 +289,128 @@
   </xacro:p3d_plugin_macro>
 
   <gazebo>
-    <plugin name="gazebo_ros_diff_drive_back" filename="libgazebo_ros_diff_drive.so">
+    <plugin name="gazebo_ros_planar_move" filename="libgazebo_ros_planar_move.so">
       <ros>
-        <remapping>odom:=jetauto/odometry/unfiltered</remapping>
-        <remapping>cmd_vel:=jetauto/cmd_vel</remapping>
+        <remapping>cmd_vel:=/jetauto/cmd_vel</remapping>
+        <remapping>odom:=/jetauto/odometry/unfiltered</remapping>
       </ros>
-
-      <!-- Plugin update rate in Hz -->
-      <updateRate>100</updateRate>
-
-        <!-- Name of left joint, defaults to `left_joint` -->
-      <left_joint>wheel_left_back_joint</left_joint>
-
-        <!-- Name of right joint, defaults to `right_joint` -->
-      <right_joint>wheel_right_back_joint</right_joint>
-
-        <!-- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -->
-      <wheel_separation>0.18</wheel_separation>
-
-        <!-- Diameter of the wheels, in meters, defaults to 0.15 m -->
-      <wheel_diameter>0.098</wheel_diameter>
-
-        <!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
-      <wheel_acceleration>1.0</wheel_acceleration>
-
-        <!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
-      <wheel_torque>5</wheel_torque>
-
-        <!-- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -->
       <command_topic>/jetauto/cmd_vel</command_topic>
-
-        <!-- Topic to publish nav_msgs/Odometry messages, defaults to `odom` -->
-      <odometry_topic>jetauto/odom/unfiltered</odometry_topic>
-
-        <!-- Odometry frame, defaults to `odom` -->
+      <odometry_topic>/jetauto/odometry/unfiltered</odometry_topic>
       <odometry_frame>odom</odometry_frame>
-
-        <!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
-      <robot_base_frame>base_footprint</robot_base_frame>
-
-        <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
-      <odometry_source>0</odometry_source>
-
-        <!-- Set to true to publish transforms for the wheel links, defaults to false -->
-      <publish_wheel_tF>false</publish_wheel_tF>
-
-        <!-- Set to true to publish transforms for the odometry, defaults to true -->
+      <odometry_rate>100.0</odometry_rate>
+      <robot_base_frame>base_link</robot_base_frame>
       <publish_odom>true</publish_odom>
-
-        <!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
-      <publish_wheel_joint_state>false</publish_wheel_joint_state>
-
-        <!-- Set to true to swap right and left wheels, defaults to true -->
-      <legacy_mode>false</legacy_mode>
+      <ground_truth>true</ground_truth>
+      <publish_odom_tf>true</publish_odom_tf>
     </plugin>
+    <!-- <plugin name="gazebo_ros_diff_drive_back" filename="libgazebo_ros_diff_drive.so"> -->
+    <!--   <ros> -->
+    <!--     <remapping>odom:=jetauto/odometry/unfiltered</remapping> -->
+    <!--     <remapping>cmd_vel:=jetauto/cmd_vel</remapping> -->
+    <!--   </ros> -->
 
-    <plugin name="gazebo_ros_diff_drive_front" filename="libgazebo_ros_diff_drive.so">
-      <ros>
-        <remapping>cmd_vel:=jetauto/cmd_vel</remapping>
-      </ros>
+    <!--   <!-1- Plugin update rate in Hz -1-> -->
+    <!--   <updateRate>100</updateRate> -->
 
-      <!-- Plugin update rate in Hz -->
-      <updateRate>100</updateRate>
+    <!--     <!-1- Name of left joint, defaults to `left_joint` -1-> -->
+    <!--   <left_joint>wheel_left_back_joint</left_joint> -->
 
-        <!-- Name of left joint, defaults to `left_joint` -->
-      <left_joint>wheel_left_front_joint</left_joint>
+    <!--     <!-1- Name of right joint, defaults to `right_joint` -1-> -->
+    <!--   <right_joint>wheel_right_back_joint</right_joint> -->
 
-        <!-- Name of right joint, defaults to `right_joint` -->
-      <right_joint>wheel_right_front_joint</right_joint>
+    <!--     <!-1- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -1-> -->
+    <!--   <wheel_separation>0.18</wheel_separation> -->
 
-        <!-- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -->
-      <wheel_separation>0.18</wheel_separation>
+    <!--     <!-1- Diameter of the wheels, in meters, defaults to 0.15 m -1-> -->
+    <!--   <wheel_diameter>0.098</wheel_diameter> -->
 
-        <!-- Diameter of the wheels, in meters, defaults to 0.15 m -->
-      <wheel_diameter>0.098</wheel_diameter>
+    <!--     <!-1- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -1-> -->
+    <!--   <wheel_acceleration>1.0</wheel_acceleration> -->
 
-        <!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
-      <wheel_acceleration>1.0</wheel_acceleration>
+    <!--     <!-1- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -1-> -->
+    <!--   <wheel_torque>5</wheel_torque> -->
 
-        <!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
-      <wheel_torque>5</wheel_torque>
+    <!--     <!-1- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -1-> -->
+    <!--   <command_topic>/jetauto/cmd_vel</command_topic> -->
 
-        <!-- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -->
-      <command_topic>/jetauto/cmd_vel</command_topic>
+    <!--     <!-1- Topic to publish nav_msgs/Odometry messages, defaults to `odom` -1-> -->
+    <!--   <odometry_topic>jetauto/odom/unfiltered</odometry_topic> -->
 
-        <!-- Topic to publish nav_msgs/Odometry messages, defaults to `odom` -->
-      <odometry_topic>jetauto/odom/unfiltered</odometry_topic>
+    <!--     <!-1- Odometry frame, defaults to `odom` -1-> -->
+    <!--   <odometry_frame>odom</odometry_frame> -->
 
-        <!-- Odometry frame, defaults to `odom` -->
-      <odometry_frame>odom</odometry_frame>
+    <!--     <!-1- Robot frame to calculate odometry from, defaults to `base_footprint` -1-> -->
+    <!--   <robot_base_frame>base_footprint</robot_base_frame> -->
 
-        <!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
-      <robot_base_frame>base_footprint</robot_base_frame>
+    <!--     <!-1- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -1-> -->
+    <!--   <odometry_source>0</odometry_source> -->
 
-        <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
-      <odometry_source>0</odometry_source>
+    <!--     <!-1- Set to true to publish transforms for the wheel links, defaults to false -1-> -->
+    <!--   <publish_wheel_tF>false</publish_wheel_tF> -->
 
-        <!-- Set to true to publish transforms for the wheel links, defaults to false -->
-      <publish_wheel_tF>false</publish_wheel_tF>
+    <!--     <!-1- Set to true to publish transforms for the odometry, defaults to true -1-> -->
+    <!--   <publish_odom>true</publish_odom> -->
 
-        <!-- Set to true to publish transforms for the odometry, defaults to true -->
-      <publish_odom>false</publish_odom>
+    <!--     <!-1- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -1-> -->
+    <!--   <publish_wheel_joint_state>false</publish_wheel_joint_state> -->
 
-        <!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
-      <publish_wheel_joint_state>false</publish_wheel_joint_state>
+    <!--     <!-1- Set to true to swap right and left wheels, defaults to true -1-> -->
+    <!--   <legacy_mode>false</legacy_mode> -->
+    <!-- </plugin> -->
 
-        <!-- Set to true to swap right and left wheels, defaults to true -->
-      <legacy_mode>false</legacy_mode>
-    </plugin>
+    <!-- <plugin name="gazebo_ros_diff_drive_front" filename="libgazebo_ros_diff_drive.so"> -->
+    <!--   <ros> -->
+    <!--     <remapping>cmd_vel:=jetauto/cmd_vel</remapping> -->
+    <!--   </ros> -->
+
+    <!--   <!-1- Plugin update rate in Hz -1-> -->
+    <!--   <updateRate>100</updateRate> -->
+
+    <!--     <!-1- Name of left joint, defaults to `left_joint` -1-> -->
+    <!--   <left_joint>wheel_left_front_joint</left_joint> -->
+
+    <!--     <!-1- Name of right joint, defaults to `right_joint` -1-> -->
+    <!--   <right_joint>wheel_right_front_joint</right_joint> -->
+
+    <!--     <!-1- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -1-> -->
+    <!--   <wheel_separation>0.18</wheel_separation> -->
+
+    <!--     <!-1- Diameter of the wheels, in meters, defaults to 0.15 m -1-> -->
+    <!--   <wheel_diameter>0.098</wheel_diameter> -->
+
+    <!--     <!-1- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -1-> -->
+    <!--   <wheel_acceleration>1.0</wheel_acceleration> -->
+
+    <!--     <!-1- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -1-> -->
+    <!--   <wheel_torque>5</wheel_torque> -->
+
+    <!--     <!-1- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -1-> -->
+    <!--   <command_topic>/jetauto/cmd_vel</command_topic> -->
+
+    <!--     <!-1- Topic to publish nav_msgs/Odometry messages, defaults to `odom` -1-> -->
+    <!--   <odometry_topic>jetauto/odom/unfiltered</odometry_topic> -->
+
+    <!--     <!-1- Odometry frame, defaults to `odom` -1-> -->
+    <!--   <odometry_frame>odom</odometry_frame> -->
+
+    <!--     <!-1- Robot frame to calculate odometry from, defaults to `base_footprint` -1-> -->
+    <!--   <robot_base_frame>base_footprint</robot_base_frame> -->
+
+    <!--     <!-1- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -1-> -->
+    <!--   <odometry_source>0</odometry_source> -->
+
+    <!--     <!-1- Set to true to publish transforms for the wheel links, defaults to false -1-> -->
+    <!--   <publish_wheel_tF>false</publish_wheel_tF> -->
+
+    <!--     <!-1- Set to true to publish transforms for the odometry, defaults to true -1-> -->
+    <!--   <publish_odom>false</publish_odom> -->
+
+    <!--     <!-1- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -1-> -->
+    <!--   <publish_wheel_joint_state>false</publish_wheel_joint_state> -->
+
+    <!--     <!-1- Set to true to swap right and left wheels, defaults to true -1-> -->
+    <!--   <legacy_mode>false</legacy_mode> -->
+    <!-- </plugin> -->
   </gazebo>
 
 
