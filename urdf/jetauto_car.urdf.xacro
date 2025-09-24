@@ -108,7 +108,7 @@
     </visual>
     <collision>
       <origin
-        xyz="0 0 0"
+        xyz="0 0 -0.025"
         rpy="0 0 0" />
       <geometry>
         <cylinder length="${wheel_link_length}" radius="${wheel_link_radius}"/>
@@ -144,7 +144,7 @@
     </visual>
     <collision>
       <origin
-        xyz="0 0 0"
+        xyz="0 0 0.025"
         rpy="0 0 0" />
       <geometry>
         <cylinder length="${wheel_link_length}" radius="${wheel_link_radius}"/>
@@ -180,7 +180,7 @@
     </visual>
     <collision>
       <origin
-        xyz="0 0 0"
+        xyz="0 0 -0.025"
         rpy="0 0 0" />
       <geometry>
         <cylinder length="${wheel_link_length}" radius="${wheel_link_radius}"/>
@@ -216,7 +216,7 @@
     </visual>
     <collision>
       <origin
-        xyz="0 0 0"
+        xyz="0 0 0.025"
         rpy="0 0 0" />
       <geometry>
         <!-- <sphere radius="${wheel_link_radius}"/> -->
