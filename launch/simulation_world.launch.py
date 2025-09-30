@@ -12,7 +12,8 @@ from ament_index_python.packages import get_package_prefix
 
 def generate_launch_description():
     robotics_class_path = get_package_share_path("robotics_class")
-    world_gazebo_path = robotics_class_path / "worlds/arena_1.world"
+    # world_gazebo_path = robotics_class_path / "worlds/arena_1.world"
+    world_gazebo_path = robotics_class_path / "worlds/labyrinth.world"
     install_dir = get_package_prefix("robotics_class")
     worlds_models_path = os.path.join(robotics_class_path, 'models')
 
@@ -32,8 +33,10 @@ def generate_launch_description():
     print("GAZEBO MODELS PATH=="+str(os.environ["GAZEBO_MODEL_PATH"]))
     print("GAZEBO PLUGINS PATH=="+str(os.environ["GAZEBO_PLUGIN_PATH"]))
 
-    x_pose_arg = DeclareLaunchArgument('x_pose', default_value='5.00', description='The x-component of the initial position (meters).')
-    y_pose_arg = DeclareLaunchArgument('y_pose', default_value='5.00', description='The y-component of the initial position (meters).')
+    # x_pose_arg = DeclareLaunchArgument('x_pose', default_value='5.00', description='The x-component of the initial position (meters).')
+    # y_pose_arg = DeclareLaunchArgument('y_pose', default_value='5.00', description='The y-component of the initial position (meters).')
+    x_pose_arg = DeclareLaunchArgument('x_pose', default_value='-1.00', description='The x-component of the initial position (meters).')
+    y_pose_arg = DeclareLaunchArgument('y_pose', default_value='0.00', description='The y-component of the initial position (meters).')
     z_pose_arg = DeclareLaunchArgument('z_pose', default_value='0.15', description='The z-component of the initial position (meters).')
     roll_arg = DeclareLaunchArgument('roll', default_value='0.00', description='The roll angle of the initial position (radians).')
     pitch_arg = DeclareLaunchArgument('pitch', default_value='0.00', description='The pitch angle of the initial position (radians).')
